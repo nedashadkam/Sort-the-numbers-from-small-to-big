@@ -1,0 +1,78 @@
+<!-- یک برنامه مرتب سازی در جاوا اسکریپت بنویسید -->
+
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <style>
+        div {
+            background-color: lightgoldenrodyellow;
+            border: 2px dotted  #bb8f92;
+            width: 30%;
+            padding: 2%;
+            margin-left: 33%;
+            margin-top: 30vh;
+        }
+
+        input {
+            background-color: crimson;
+            border: 1px solid crimson;
+            padding: 4px;
+            border-radius: 5px;
+        }
+    </style>
+
+</head>
+
+<body>
+
+    <div>
+
+        <p id="demo">Our array is numbers = [2 , 88 , 22 , 46 , 15 , 8 , 75 , 48]</p>
+
+        <input onclick="call()" type="button" value="Sort the numbers from small to big">
+
+    </div>
+
+    <script>
+
+        function call() {
+            document.getElementById("demo").innerHTML = `Our array is numbers = [${output()}]`;
+        }
+
+        // const number = [2, 88, 22, 46, 15,22, 8, 75, 48];
+        // function output () {
+        //     return number.sort((a,b) => {
+        //         return a-b
+        //     })
+        // }
+
+
+        const number = [2, 88, 22, 46, 22, 15, 8, 75, 48];
+        let sum = [];
+
+        function output() {
+            let min = number[0];
+            if (number.length > 0) {
+            for (let i = 0; i < number.length; i++) {
+                if (min > number[i]) {
+                    min = number[i];
+                }
+            }
+            sum.push(min);
+            for (let a = 0; a < number.length; a++) {
+                if (number[a] == min) {
+                    number.splice(a, 1);
+                }
+            }
+                output()
+            }
+            return sum.join(" , ");
+        }
+
+    </script>
+
+</body>
+
+</html>
